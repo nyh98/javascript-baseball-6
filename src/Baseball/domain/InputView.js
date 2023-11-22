@@ -7,6 +7,7 @@ const INPUT_VIEW = Object.freeze({
     const NUMBERS = await Console.readLineAsync('숫자를 입력해주세요 :');
     ERROR_LIST.notNumber(NUMBERS);
     ERROR_LIST.overNumbers(NUMBERS);
+    ERROR_LIST.repeatedNUmber(NUMBERS);
     return NUMBERS;
   },
 });
