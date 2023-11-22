@@ -1,7 +1,7 @@
 import { Random } from '@woowacourse/mission-utils';
 
-class RandomNumber {
-  static create() {
+const RANDOM_NUMBER = Object.freeze({
+  create() {
     const REPOSITORY = [];
 
     while (REPOSITORY.length < 3) {
@@ -11,7 +11,7 @@ class RandomNumber {
       }
     }
     return REPOSITORY;
-  }
-}
+  },
+});
 
-export default RandomNumber;
+export default RANDOM_NUMBER;
