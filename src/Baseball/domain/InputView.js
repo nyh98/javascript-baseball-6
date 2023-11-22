@@ -4,14 +4,11 @@ import MESSAGES from './Messages.js';
 
 const INPUT_VIEW = Object.freeze({
   async user() {
-    while (true) {
-      try {
-        const NUMBERS = await Console.readLineAsync('숫자를 입력해주세요 :');
-        ERROR_LIST.notNumber(NUMBERS);
-        return NUMBERS;
-      } catch (error) {
-        Console.print(MESSAGES.Numbererror);
-      }
-    }
+    const NUMBERS = await Console.readLineAsync('숫자를 입력해주세요 :');
+    ERROR_LIST.notNumber(NUMBERS);
+    ERROR_LIST.overNumbers(NUMBERS);
+    return NUMBERS;
   },
 });
+
+export default INPUT_VIEW;
