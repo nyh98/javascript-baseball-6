@@ -5,9 +5,7 @@ import MESSAGES from './Messages.js';
 const INPUT_VIEW = Object.freeze({
   async user() {
     const NUMBERS = await Console.readLineAsync('숫자를 입력해주세요 :');
-    ERROR_LIST.notNumber(NUMBERS);
-    ERROR_LIST.overNumbers(NUMBERS);
-    ERROR_LIST.repeatedNUmber(NUMBERS);
+    ERROR_LIST.allCheck(NUMBERS);
     return NUMBERS;
   },
 });
