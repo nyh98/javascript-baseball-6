@@ -29,14 +29,15 @@ class Computer {
     return strike;
   }
 
-  notsingValidate(userInput) {
+  nothingValidate(userInput) {
     if (
       this.ballValidate(userInput) === 0 &&
       this.strikeValidate(userInput) === 0
     ) {
-      let notsing = '낫싱';
-      return notsing;
+      let nothing = '낫싱';
+      return nothing;
     }
+    return 0;
   }
 }
 
