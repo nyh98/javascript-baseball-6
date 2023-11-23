@@ -19,7 +19,11 @@ const OUTPUT_VIEW = Object.freeze({
 
   strike(computer, userInput) {
     const RESULT = this.result(computer, userInput);
-    if (RESULT['ball'] === 0 && RESULT['nothing'] === 0) {
+    if (
+      RESULT['ball'] === 0 &&
+      RESULT['nothing'] === 0 &&
+      RESULT['strike'] > 3
+    ) {
       Console.print(`${RESULT['strike']}스트라이크`);
     }
   },
@@ -54,8 +58,14 @@ const OUTPUT_VIEW = Object.freeze({
     this.ballAndStrike(computer, userInput);
     this.win(computer, userInput);
   },
+
+  startMessage() {
+    Console.print('숫자 야구 게임을 시작합니다');
+  },
 });
 
 let q = new Computer([1, 2, 3]);
-let w = '567';
-OUTPUT_VIEW.allCheck(q, w);
+let w = '345';
+let p = OUTPUT_VIEW.allCheck(q, w);
+console.log(p);
+export default OUTPUT_VIEW;
