@@ -5,39 +5,23 @@ class Computer {
     this.#numbers = numbers;
   }
 
-  ballValidate(userInput) {
+  Validate(userInput) {
     let ball = 0;
-    this.#numbers.forEach((element, index) => {
-      for (let i = 0; i < userInput.length; i++) {
-        if (element === Number(userInput[i]) && index !== i) {
-          ball += 1;
-        }
-      }
-    });
-    return ball;
-  }
-
-  strikeValidate(userInput) {
     let strike = 0;
-    this.#numbers.forEach((element, index) => {
-      for (let i = 0; i < userInput.length; i++) {
-        if (element === Number(userInput[i]) && index === i) {
-          strike += 1;
-        }
+    this.#numbers.forEach((number, index) => {
+      const indexof = userInput.indexOf(number);
+      if (indexof === index) {
+        strike += 1;
+      }
+      if (indexof !== index && indexof !== -1) {
+        ball += 1;
       }
     });
-    return strike;
+    return { ball, strike };
   }
 
-  nothingValidate(userInput) {
-    if (
-      this.ballValidate(userInput) === 0 &&
-      this.strikeValidate(userInput) === 0
-    ) {
-      let nothing = '낫싱';
-      return nothing;
-    }
-    return 0;
+  isWin(result) {
+    return result.strike === 3;
   }
 }
 

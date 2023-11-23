@@ -8,6 +8,14 @@ const INPUT_VIEW = Object.freeze({
     ERROR_LIST.allCheck(NUMBERS);
     return NUMBERS;
   },
+
+  async reStart() {
+    const RESTART_NUMBER = await Console.readLineAsync(
+      '게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.'
+    );
+    ERROR_LIST.reStartNum(RESTART_NUMBER);
+    return RESTART_NUMBER;
+  },
 });
 
 export default INPUT_VIEW;

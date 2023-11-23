@@ -1,12 +1,10 @@
 import MESSAGES from './Messages.js';
-import { Console } from '@woowacourse/mission-utils';
 
 const ERROR_LIST = Object.freeze({
   invalidFormat(userInput) {
     const NON_DIGIT_PATTERN = /\D/g;
-    if (NON_DIGIT_PATTERN.test(userInput)) {
+    if (NON_DIGIT_PATTERN.test(userInput))
       throw new Error(MESSAGES.invalidFormatError);
-    }
   },
 
   overNumbers(userInput) {
@@ -25,6 +23,13 @@ const ERROR_LIST = Object.freeze({
     this.invalidFormat(userInput);
     this.overNumbers(userInput);
     this.repeatedNUmber(userInput);
+  },
+
+  reStartNum(userInput) {
+    const CHECK = [1, 2];
+    if (!CHECK.includes(Number(userInput))) {
+      throw new Error(MESSAGES.reStartNumError);
+    }
   },
 });
 
